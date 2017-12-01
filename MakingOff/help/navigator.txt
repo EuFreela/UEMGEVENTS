@@ -1,0 +1,35 @@
+https://www.youtube.com/watch?v=H27uz6vaj_o
+http://www.c-sharpcorner.com/UploadFile/718fc8/how-to-bind-bindingnavigator-with-datagridview/
+https://msdn.microsoft.com/pt-br/library/safa4957(v=vs.100).aspx
+https://msdn.microsoft.com/pt-br/library/33y2221y(v=vs.110).aspx
+
+  	    dbo.OpenConnection();
+            string query = "Select * from palestrante";
+            //DataTable dt = new DataTable();
+	    DataSet dset = new DataSet();
+            SQLiteDataAdapter da = new SQLiteDataAdapter(query,dbo.GetStringConn());
+            //da.Fill(dt);
+	    da.Fill(dt);
+	
+	    BindingSource bss = new BindingSource();
+            //bss.DataSource = dt;
+	    bss.DataSource = dset.Tables[0].DefaultView;
+
+            nvPalestrante.BindingSource = bss;
+            //dGringPalestrante.DataSource = dt;
+	    dGringPalestrante.DataSource = bss;
+
+==========================
+
+obter dados da celula com click
+
+ int i = dGringPalestrante.CurrentCell.RowIndex;
+
+            string s = dGringPalestrante.CurrentCell.Value.ToString();
+
+            MessageBox.Show(s, "Erro!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+===============================
+search https://www.youtube.com/watch?v=g0qy7_l7vFg
+
+            

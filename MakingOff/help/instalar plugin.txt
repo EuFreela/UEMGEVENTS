@@ -1,0 +1,58 @@
+http://www.macoratti.net/10/03/c_sqlt1.htm
+
+instalar sqlite plugin
+
+visual studio 2017/Ferramentas (tools)/Atualizações
+
+em Online/Visual Studio Marketplace digite na pesquisa sqlite
+
+depois clique com o direito sobre o nome do projeto em gerenciador de soluççoes, clique em Gerenciador de pacotes Nuget
+clique em procurar e instale o system.data.sqlite
+
+Baixe o SGDB: Sqlite Studio
+crie uma tabela chamada teste:
+CREATE TABLE teste (
+    id   INT           PRIMARY KEY,
+    nome VARCHAR (255) 
+);
+
+
+no visual studio na ação click do botão insira:
+ SQLiteConnection sqlite_conn; // Declare the SQLiteConnection-Object
+            
+            try
+            {
+                sqlite_conn = new SQLiteConnection(); // Create an instance of the object
+                sqlite_conn.ConnectionString = "Data Source=uemgevent.db;Version=3;New=True;Compress=True;"; // Set the ConnectionString
+                sqlite_conn.Open(); // Open the connection. Now you can fire SQL-Queries
+                
+                // create a new SQL command:
+                SQLiteCommand sqlite_cmd;
+                sqlite_cmd = sqlite_conn.CreateCommand();
+
+                sqlite_cmd.CommandText = "INSERT INTO teste (id, nome) VALUES (1, 'mmmmm');";                
+                sqlite_cmd.ExecuteNonQuery();
+                sqlite_cmd.CommandText = "SELECT * FROM teste";
+                SQLiteDataReader sqlite_datareader;
+                sqlite_datareader = sqlite_cmd.ExecuteReader();
+
+                string str = "";
+                while (sqlite_datareader.Read()) // Read() returns true if there is still a result line to read
+                {
+                    // Print out the content of the text field:
+                   str = str + sqlite_datareader["nome"];
+                }
+                sqlite_conn.Close();
+                MessageBox.Show(str, "retorno",
+MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+            }
+#pragma warning disable CS0168 // A variável foi declarada, mas nunca foi usada
+            catch (InvalidCastException ex)
+#pragma warning restore CS0168 // A variável foi declarada, mas nunca foi usada
+            {
+                
+                MessageBox.Show("retorno", "erro: "+ex.ToString(),
+MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+            }
+
+Deverá retornar uma caixa de mensagem com "mmmmmmm"

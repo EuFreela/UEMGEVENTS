@@ -1,0 +1,8 @@
+http://www.w3ii.com/pt/sqlite/sqlite_create_database.html
+
+abra o cdm
+entre no diretório
+execute o comando
+sqlite3 nomedoDB.db
+sair: .quit
+sqlite3 tabajaraDB.db
