@@ -50,7 +50,6 @@ Crie a base de dados e as tabelas necessárias. Anexe o script junto aos arquivo
 
 <hr>
 <img src="https://s7.postimg.org/ok0h7d0aj/image.jpg" width="500" heigth="500">
-<img src="https://s7.postimg.org/ok0h7d0aj/image.jpg" width="500" heigth="500">
 <img src="https://s7.postimg.org/4peflhdfv/image.jpg" width="500" heigth="500">
 <img src="https://s7.postimg.org/l0ejhtsij/image.jpg" width="500" heigth="500">
 <img src="https://s7.postimg.org/bsmb14t63/image.jpg" width="500" heigth="500">
